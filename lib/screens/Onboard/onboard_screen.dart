@@ -41,6 +41,8 @@ class _HomeState extends State<onboard> {
   PageController _controller = PageController();
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
   return Scaffold(
     appBar: AppBar(
       //elevation: 50,
