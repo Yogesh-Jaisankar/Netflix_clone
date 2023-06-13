@@ -5,6 +5,7 @@ import 'package:netflix_clone/screens/Onboard/intro2.dart';
 import 'package:netflix_clone/screens/Onboard/intro3.dart';
 import 'package:netflix_clone/screens/Onboard/intro4.dart';
 import 'package:netflix_clone/screens/signin.dart';
+import 'package:netflix_clone/screens/signup.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -127,7 +128,7 @@ class _HomeState extends State<onboard> {
               //color: HexColor("6BDE84"),
               child: InkWell(
                 onTap: (){
-                  print("LOGIN");
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUp()));
                 },
                 child: const Center(
                   child: Text("GET STARTED",
