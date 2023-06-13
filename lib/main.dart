@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:netflix_clone/SplashScreen/splash.dart';
 import 'package:netflix_clone/screens/Home.dart';
 import 'package:netflix_clone/screens/Onboard/onboard_screen.dart';
 
@@ -21,19 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: AnimatedSplashScreen(
-              backgroundColor: Colors.black,
-                duration: 1000,
-                splash: Lottie.asset('assets/lottie/logo.json',height: 1500,width: 1500),
-                nextScreen: onboard()),
-          ),
-        ],
-      ),
+      home:Splash()
     );
   }
 }
