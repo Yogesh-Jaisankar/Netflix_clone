@@ -1,4 +1,4 @@
-# netflix_clone
+# Netflix_clone
 
 Hey Peeps, This is a open source Project, Netflix Clone. Trying to cover each and every modules as exactly the same as original apk.
 
