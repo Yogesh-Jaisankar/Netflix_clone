@@ -1,6 +1,6 @@
 # netflix_clone
 
-A new Flutter project.
+Hey Peeps, This is a open source Project, Netflix Clone. Trying to cover each and every modules as exactly the same as original apk.
 
 ## Getting Started
 
