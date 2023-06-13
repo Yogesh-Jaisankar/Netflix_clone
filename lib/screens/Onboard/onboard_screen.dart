@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:netflix_clone/screens/Onboard/intro1.dart';
 import 'package:netflix_clone/screens/Onboard/intro2.dart';
 import 'package:netflix_clone/screens/Onboard/intro3.dart';
 import 'package:netflix_clone/screens/Onboard/intro4.dart';
+import 'package:netflix_clone/screens/signin.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,9 +16,25 @@ class onboard extends StatefulWidget {
 }
 
 class _HomeState extends State<onboard> {
-  Future <void> _launch()async{
-    if (!await launchUrl("https://help.netflix.com/legal/privacy" as Uri)) {
-      throw Exception('Could not launch');
+  final Uri _url = Uri.parse('https://help.netflix.com/legal/privacy');
+  final Uri _urlfaq = Uri.parse('https://openconnect.netflix.com/en/faq/');
+  final Uri _urlhelp = Uri.parse('https://help.netflix.com/en/');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+
+  Future<void> _launchUrlfaq() async {
+    if (!await launchUrl(_urlfaq)) {
+      throw Exception('Could not launch $_urlfaq');
+    }
+  }
+
+  Future<void> _launchUrlhelp() async {
+    if (!await launchUrl(_urlhelp)) {
+      throw Exception('Could not launch $_urlhelp');
     }
   }
 
@@ -43,29 +59,34 @@ class _HomeState extends State<onboard> {
               padding: EdgeInsets.all(5),
                 child: InkWell(
                   onTap: (){
-                   launch("https://help.netflix.com/legal/privacy");
+                   _launchUrl();
                   },
                     child: const Text("PRIVACY",
                       style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),))),
-            const SizedBox(width: 20),
+             const SizedBox(width: 20),
              Padding(
                 padding:  EdgeInsets.all(5),
                 child: InkWell(
                   onTap: (){
-                    print("SIGN IN");
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));
                   },
                   child:const Text("SIGN IN",
                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
                 )),
             const SizedBox(width: 20),
-            Padding(
-                padding: EdgeInsets.all(5),
-                child: InkWell(
-                  onTap: (){
-                    print("More");
-                  },
-                    child: Icon(Icons.more_vert))),
-            SizedBox(width: 20),
+            PopupMenuButton<String>(
+                itemBuilder: (BuildContext context){
+              return [
+                PopupMenuItem(child: Text("FAQ's"),onTap: (){
+                  _launchUrlfaq();
+                },),
+                PopupMenuItem(child: Text("Help"),onTap: (){
+                  _launchUrlhelp();
+                },)
+,
+              ];
+            }),
+            const SizedBox(width: 20),
       ],
     ),
     body: Container(
@@ -76,25 +97,25 @@ class _HomeState extends State<onboard> {
             child:
           PageView(
             controller: _controller,
-            children: [
-             intro1(),
+            children: const [
+              intro1(),
               intro2(),
               intro3(),
               intro4(),
             ],
           ),),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           SmoothPageIndicator(
             controller: _controller,
             count: 4,
-            effect: SlideEffect(
+            effect:const SlideEffect(
                 spacing: 15,
                 dotWidth:  10,
                 dotHeight: 10,
                 dotColor: Colors.grey,
                 activeDotColor:  Colors.white
             ),),
-          SizedBox(height: 20),
+           const SizedBox(height: 20),
            Container(
               decoration: BoxDecoration(
                   color: HexColor("E50914"),
@@ -120,7 +141,7 @@ class _HomeState extends State<onboard> {
                 ),
               ),
             ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     ),
