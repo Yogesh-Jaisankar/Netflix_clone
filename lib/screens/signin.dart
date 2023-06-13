@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/helper/helper.dart';
 import 'package:netflix_clone/screens/Onboard/onboard_screen.dart';
 
 class SignIn extends StatelessWidget {
@@ -6,6 +7,9 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    authservice authService = authservice();
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -38,6 +42,7 @@ class SignIn extends StatelessWidget {
                   children: [
                     SizedBox(height: 150),
                     TextField(
+                      controller: authservice.email,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(focusedBorder: InputBorder.none,
                         focusColor: Colors.white,
@@ -55,6 +60,7 @@ class SignIn extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     TextField(
+                      controller: authservice.password,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           focusedBorder: InputBorder.none,
@@ -85,7 +91,9 @@ class SignIn extends StatelessWidget {
                       //color: HexColor("6BDE84"),
                       child: InkWell(
                         onTap: (){
-                          print("LOGIN");
+                          if(authservice.email != "" && authservice.password != ""){
+                            authService.loginUser(context);
+                          }
                         },
                         child: const Center(
                           child: Text("Sign In",

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:netflix_clone/helper/helper.dart';
 import 'package:netflix_clone/screens/signin.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,6 +11,8 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    authservice authService = authservice();
 
     final Uri _urlhelp = Uri.parse('https://help.netflix.com/en/');
 
@@ -70,12 +74,14 @@ class SignUp extends StatelessWidget {
                   const SizedBox(height: 30),
                    Text("Create an account to learn more\nabout Netflix.",
                      style: GoogleFonts.getFont("Poppins",
-                         fontSize: 20,
+                         fontSize: 18,
                          color: Colors.white,
                          fontWeight: FontWeight.w300),
                     ),
                   const SizedBox(height: 30),
-                  TextField(
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: authservice.email,
                     cursorColor: HexColor("E50914"),
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(focusedBorder: InputBorder.none,
@@ -94,6 +100,8 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   TextField(
+                    keyboardType: TextInputType.visiblePassword,
+                    controller: authservice.password,
                     obscureText: true,
                     cursorColor: HexColor("E50914"),
                     style: TextStyle(color: Colors.white),
@@ -126,7 +134,10 @@ class SignUp extends StatelessWidget {
                     //color: HexColor("6BDE84"),
                     child: InkWell(
                       onTap: (){
-                        print("LOGIN");
+                        if(authservice.email != "" && authservice.password != ""){
+                          authService.RegisterUser(context);
+                          showToast("Login Using You Credentials",context:context);
+                        }
                       },
                       child: const Center(
                         child: Text("CONTINUE",

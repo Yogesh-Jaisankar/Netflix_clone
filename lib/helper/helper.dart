@@ -4,13 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screens/Home.dart';
-import 'package:netflix_clone/screens/Onboard/onboard_screen.dart';
 import 'package:netflix_clone/screens/signin.dart';
 
 class authservice{
   final auth = FirebaseAuth.instance;
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  static late TextEditingController email = TextEditingController();
+  static late TextEditingController password = TextEditingController();
   final firestore = FirebaseFirestore.instance;
 
   void loginUser (context)async{
@@ -72,6 +71,6 @@ class authservice{
 
   void logOutUser(context)async{
     await auth.signOut();
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (C)=>onboard()), (route) => false);
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (C)=>SignIn()), (route) => false);
   }
 }
