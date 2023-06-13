@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/SplashScreen/splash.dart';
 import 'package:netflix_clone/screens/Home.dart';
 import 'package:netflix_clone/screens/profiles.dart';
+import 'package:netflix_clone/screens/signin.dart';
+import 'package:netflix_clone/screens/signup.dart';
 
 final auth = FirebaseAuth.instance;
 

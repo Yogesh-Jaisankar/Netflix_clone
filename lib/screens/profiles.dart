@@ -24,11 +24,11 @@ class Profiles extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding:const  EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+      body: Center(
         child: ListView(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
           children:  [
-            SizedBox(height: 200),
             Text("Who's Watching?",textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey,
                   fontWeight: FontWeight.w800,

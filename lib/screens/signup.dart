@@ -55,6 +55,7 @@ class SignUp extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -63,6 +64,8 @@ class SignUp extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               width: 400,
               child: ListView(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
                 children: [
                   SizedBox(height: 60),
                   Text("Ready to experience\nunlimited TV shows &\nmovies?",

@@ -31,6 +31,7 @@ class SignIn extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
         child:SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -38,6 +39,7 @@ class SignIn extends StatelessWidget {
                  height: MediaQuery.of(context).size.height,
                 width: 400,
                 child: ListView(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
                     SizedBox(height: 150),
