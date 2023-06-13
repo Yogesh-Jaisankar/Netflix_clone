@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:netflix_clone/helper/helper.dart';
 
 class Home extends StatefulWidget {
@@ -19,12 +17,10 @@ class _HomeState extends State<Home> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Container(
-          child: Row(
-            children: [
-              Image.asset("assets/images/netflixlogo.png",fit: BoxFit.cover,width: 40,height: 40,)
-            ],
-          ),
+        title: Row(
+          children: [
+            Image.asset("assets/images/netflixlogo.png",fit: BoxFit.cover,width: 40,height: 40,)
+          ],
         ),
         actions:  [
           const Icon(Icons.search_outlined,color: Colors.white,size: 35,),
@@ -86,7 +82,7 @@ class _HomeState extends State<Home> {
                     Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Sci-fi",style: TextStyle(
@@ -115,11 +111,11 @@ class _HomeState extends State<Home> {
                         ),),
                       ],
                     ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Column(
+                          const Column(
                             children: [
                               Icon((Icons.add),color: Colors.white,),
                               SizedBox(height: 5),
@@ -129,16 +125,16 @@ class _HomeState extends State<Home> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: 40),
+                          const SizedBox(width: 40),
                           Container(
                             decoration: BoxDecoration(color: Colors.white,
                               borderRadius: BorderRadius.circular(2)
                             ),
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxWidth: 70
                             ),
 
-                            child: Row(
+                            child: const Row(
                               children: [
                                 Icon((Icons.play_arrow),color: Colors.black,),
                                 SizedBox(width: 5),
@@ -146,8 +142,8 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                           ),
-                          SizedBox(width: 40),
-                          Column(
+                          const SizedBox(width: 40),
+                          const Column(
                             children: [
                               Icon((Icons.info),color: Colors.white,),
                               SizedBox(height: 5),
@@ -157,7 +153,7 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                   ],)
                 ],
               ),
