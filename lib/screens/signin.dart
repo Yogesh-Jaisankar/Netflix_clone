@@ -60,6 +60,7 @@ class SignIn extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     TextField(
+                      obscureText: true,
                       controller: authservice.password,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(

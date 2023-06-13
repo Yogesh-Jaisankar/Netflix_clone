@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screens/Home.dart';
+import 'package:netflix_clone/screens/Onboard/onboard_screen.dart';
+import 'package:netflix_clone/screens/profiles.dart';
 import 'package:netflix_clone/screens/signin.dart';
 
 class authservice{
@@ -24,7 +26,7 @@ class authservice{
       await auth.signInWithEmailAndPassword(email: email.text, password: password.text)
           .then((value)=> {
         print("user is lgged in"),
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()),
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Profiles()),
                 (route) => false)
       });
     }catch(e){
@@ -71,6 +73,6 @@ class authservice{
 
   void logOutUser(context)async{
     await auth.signOut();
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (C)=>SignIn()), (route) => false);
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (C)=>onboard()), (route) => false);
   }
 }

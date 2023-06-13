@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:netflix_clone/screens/Home.dart';
 import 'package:netflix_clone/screens/Onboard/onboard_screen.dart';
+import 'package:netflix_clone/screens/profiles.dart';
 import 'package:netflix_clone/screens/signin.dart';
 final auth = FirebaseAuth.instance;
 
@@ -46,7 +47,7 @@ class _SplashState extends State<Splash>with TickerProviderStateMixin {
                 ..duration = compos.duration..forward()
                     .then((value){
                       Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (context)=>auth.currentUser==null?onboard():Home(),));
+                          builder: (context)=>auth.currentUser==null?onboard():Profiles(),));
                 });
               })
             ],
